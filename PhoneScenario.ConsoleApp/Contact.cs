@@ -70,11 +70,11 @@ namespace PhoneScenario.ConsoleApp {
         //}
 
         public string PhoneNumber {
-            set { 
-                if (value.Length > 50) {
-                    phoneNumber = value.Substring(0, 50);
-                } else {
+            set {
+                if (value is null || value.Length <= 50) {
                     phoneNumber = value;
+                } else {
+                    phoneNumber = value.Substring(0, 50);
                 }
             }
 
@@ -85,7 +85,17 @@ namespace PhoneScenario.ConsoleApp {
             }
         }
 
+        //HAS A relationship
+        public Address HomeAddress { get; set; } = new Address();
+        //public Address WorkAddress { get; set; }
 
+        public void CopyTo(Contact target) {
+            target.Name = this.Name;
+            target.Surname = Surname;
+            target.PhoneNumber = PhoneNumber;
+
+            HomeAddress.CopyTo(target.HomeAddress);
+        }
 
     }
 
