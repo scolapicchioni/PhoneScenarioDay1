@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PhoneScenario.ConsoleApp {
     class TechSupport {
-        public void CopyContacts(ListOfContacts source, ListOfContacts target) 
+        public void CopyContacts(GenericList<Contact> source, GenericList<Contact> target) 
         {
             //for (int i = 0; i < source.Contacts.Length && source.Contacts[i] is not null; i++) {}
 

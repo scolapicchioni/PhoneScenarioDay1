@@ -3,6 +3,45 @@
 namespace PhoneScenario.ConsoleApp {
     class Program {
         static void Main(string[] args) {
+            /*
+             * As a USER
+             * I want a Calculator
+             * with Add, Subtract, Multiply, Divide
+             * so that I can calculate using the phone.
+             */
+
+            /*
+             * As a USER
+             * I want an AGENDA 
+             * so that I can keep my APPOINTMENTs.
+             */
+
+            //Calculator calc = new Calculator();
+            //double result = calc.Add(4.5, 3.5);
+            //Console.WriteLine(result);
+
+            Phone samsung = new Phone();
+            samsung.Brand = "Samsung";
+            samsung.Model = "S5";
+
+            double result = samsung.Calc.Add(4.5, 3.5);
+            Console.WriteLine(result);
+        }
+
+        private static void Day02_CompleteScenario() {
+            /*
+            As a USER
+            I want to give my two PHONEs to the TECHSUPPORT
+            so that the CONTACTs are COPIED from one phone to the other
+
+
+            USER
+            PHONE
+            TECHSUPPORT
+            CONTACT
+
+            COPY
+            */
             Phone p1 = new Phone();
 
             Contact c = new Contact();
@@ -10,15 +49,15 @@ namespace PhoneScenario.ConsoleApp {
             c.Surname = "Colapicchioni";
             c.HomeAddress.City = "Rome";
 
-            p1.Contacts.Add(c);
+            p1.Contacts.Items.Add(c);
 
             c = new Contact();
 
             c.Name = "Remko";
             c.Surname = "de Hoop";
             c.HomeAddress.City = "Gouda";
-            
-            p1.Contacts.Add(c);
+
+            p1.Contacts.Items.Add(c);
 
             Phone p2 = new Phone();
 
@@ -27,14 +66,14 @@ namespace PhoneScenario.ConsoleApp {
             c.Name = "Jan Peter";
             c.Surname = "ten berge";
 
-            p2.Contacts.Add(c);
+            p2.Contacts.Items.Add(c);
 
             TechSupport ts = new TechSupport();
 
-            ts.CopyContacts(p1.Contacts, p2.Contacts);
+            ts.CopyContacts(p1.Contacts.Items, p2.Contacts.Items);
 
-            for (int i = 0; i < p2.Contacts.Length; i++) {
-                c = p2.Contacts.ItemAt(i);
+            for (int i = 0; i < p2.Contacts.Items.Length; i++) {
+                c = p2.Contacts.Items.ItemAt(i);
                 Console.WriteLine(c.FullName);
             }
         }

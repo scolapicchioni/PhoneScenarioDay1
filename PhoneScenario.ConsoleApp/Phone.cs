@@ -9,6 +9,8 @@ namespace PhoneScenario.ConsoleApp {
         public string Brand { get; set; }
         public string Model { get; set; }
         public string SerialNumber { get; set; }
-        public ListOfContacts Contacts { get; } = new ListOfContacts();
+        public Contacts Contacts { get; set; } = new Contacts();
+        public Calculator Calc { get; set; } = new Calculator();
+        public Calendar Agenda { get; set; } = new Calendar();
     }
 }
