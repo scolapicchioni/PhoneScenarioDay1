@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace PhoneScenario.ConsoleApp {
-    class Contact {
+namespace PhoneScenario.Apps.ContactsApp {
+    public class Contact {
         //backing field
         private string name;
 

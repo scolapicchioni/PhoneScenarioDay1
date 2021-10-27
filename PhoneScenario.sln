@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneScenario.ConsoleApp", "PhoneScenario.ConsoleApp\PhoneScenario.ConsoleApp.csproj", "{C79E052C-69F8-41A8-94BC-57FE1B5239BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneScenario.ConsoleApp", "PhoneScenario.ConsoleApp\PhoneScenario.ConsoleApp.csproj", "{C79E052C-69F8-41A8-94BC-57FE1B5239BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneScenario.Core", "PhoneScenario.Core\PhoneScenario.Core.csproj", "{F9F2D194-3F6D-4A32-929B-1465F36EBDE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneScenario.DefaultApps", "PhoneScenario.DefaultApps\PhoneScenario.DefaultApps.csproj", "{7BE4B0F4-017E-4BE3-949B-71D5F2F7CDD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneScenario.Apps.WhatsAppApps", "PhoneScenario.Apps.WhatsAppApps\PhoneScenario.Apps.WhatsAppApps.csproj", "{6754BAA9-9A72-4D28-9AE8-94683F5A289E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{C79E052C-69F8-41A8-94BC-57FE1B5239BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C79E052C-69F8-41A8-94BC-57FE1B5239BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C79E052C-69F8-41A8-94BC-57FE1B5239BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9F2D194-3F6D-4A32-929B-1465F36EBDE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9F2D194-3F6D-4A32-929B-1465F36EBDE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9F2D194-3F6D-4A32-929B-1465F36EBDE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9F2D194-3F6D-4A32-929B-1465F36EBDE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BE4B0F4-017E-4BE3-949B-71D5F2F7CDD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BE4B0F4-017E-4BE3-949B-71D5F2F7CDD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BE4B0F4-017E-4BE3-949B-71D5F2F7CDD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BE4B0F4-017E-4BE3-949B-71D5F2F7CDD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6754BAA9-9A72-4D28-9AE8-94683F5A289E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6754BAA9-9A72-4D28-9AE8-94683F5A289E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6754BAA9-9A72-4D28-9AE8-94683F5A289E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6754BAA9-9A72-4D28-9AE8-94683F5A289E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

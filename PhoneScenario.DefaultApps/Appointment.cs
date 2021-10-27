@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PhoneScenario.ConsoleApp {
-    class Appointment {
+namespace PhoneScenario.Apps.CalendarApp {
+    public class Appointment {
         public string Title { get; set; }
         public DateTime Start { get; set; }
         public DateTime End { get; set; }

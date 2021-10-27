@@ -1,59 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
-  <Class Name="PhoneScenario.ConsoleApp.Contact">
-    <Position X="17.75" Y="3" Width="2.5" />
-    <TypeIdentifier>
-      <HashCode>AIAAAAAAAAAAAIAAAAAAQAQABEAEAAAAAAAAAAAAIAA=</HashCode>
-      <FileName>Contact.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="PhoneScenario.ConsoleApp.GenericList&lt;TheTypeOfTheItemInTheCollection&gt;">
-    <Position X="13.5" Y="3" Width="3.75" />
-    <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAABAgCAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>GenericList.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="PhoneScenario.ConsoleApp.Phone">
-    <Position X="1.5" Y="2.75" Width="2.75" />
-    <TypeIdentifier>
-      <HashCode>BAAAAgAAAAAAAAAAAAAAAAAAAAEAAAABAAgAAAABAAA=</HashCode>
-      <FileName>Phone.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="PhoneScenario.ConsoleApp.TechSupport">
-    <Position X="18" Y="1" Width="5.25" />
+    <Position X="11.5" Y="1" Width="5.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>TechSupport.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="PhoneScenario.ConsoleApp.Address">
-    <Position X="20.75" Y="3" Width="2.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAIAAAIAAAAAAAAAAABAAIABgAAIAA=</HashCode>
-      <FileName>Address.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="PhoneScenario.ConsoleApp.Calculator">
-    <Position X="6.25" Y="8.75" Width="3" />
-    <TypeIdentifier>
-      <HashCode>AAIAAAAAAQAAAAAAAAADAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Calculator.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="PhoneScenario.ConsoleApp.Calendar">
-    <Position X="1.75" Y="8.75" Width="3.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAQAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Calendar.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="PhoneScenario.ConsoleApp.Contacts">
-    <Position X="10.25" Y="8.75" Width="2.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Contacts.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PhoneScenario.ConsoleApp {
-    class Address {
+namespace PhoneScenario.Apps.ContactsApp {
+    public class Address {
         public string Street { get; set; }
         public string StreetNumber { get; set; }
         public string ZipCode { get; set; }

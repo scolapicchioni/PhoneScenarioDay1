@@ -1,5 +1,5 @@
-﻿namespace PhoneScenario.ConsoleApp {
-    class GenericList<TheTypeOfTheItemInTheCollection> {
+﻿namespace PhoneScenario.Core {
+    public class GenericList<TheTypeOfTheItemInTheCollection> {
         private TheTypeOfTheItemInTheCollection[] items = new TheTypeOfTheItemInTheCollection[10];
         private int count = 0;
 

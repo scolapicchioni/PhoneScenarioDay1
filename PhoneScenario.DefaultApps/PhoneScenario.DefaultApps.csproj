@@ -1,14 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PhoneScenario.Apps.WhatsAppApps\PhoneScenario.Apps.WhatsAppApps.csproj" />
     <ProjectReference Include="..\PhoneScenario.Core\PhoneScenario.Core.csproj" />
-    <ProjectReference Include="..\PhoneScenario.DefaultApps\PhoneScenario.DefaultApps.csproj" />
   </ItemGroup>
 
 </Project>
