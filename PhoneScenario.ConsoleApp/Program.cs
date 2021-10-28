@@ -3,12 +3,13 @@ using PhoneScenario.Apps.CalculatorApp;
 using PhoneScenario.Apps.CalendarApp;
 using PhoneScenario.Apps.ContactsApp;
 using PhoneScenario.Apps.WhatsAppApps;
+using PhoneScenario.Core;
 using System;
 
 namespace PhoneScenario.ConsoleApp  {
     class Program {
         static void Main(string[] args) {
-            Core.Phone p1 = new Core.Phone();
+            Phone p1 = new Phone();
 
             p1.Apps.Add(new Calculator("john"));
             p1.Apps.Add(new Calendar());
@@ -21,8 +22,9 @@ namespace PhoneScenario.ConsoleApp  {
             }
 
             try {
-                
-            } catch (ContactsAppNotFoundException problem) {
+                Contacts contactsApp = p1.Apps.FindApp<Contacts>();
+                Calculator calculatorApp = p1.Apps.FindApp<Calculator>();
+            } catch (AppNotFoundException problem) {
                 Console.WriteLine(problem.Message); 
             }
         }

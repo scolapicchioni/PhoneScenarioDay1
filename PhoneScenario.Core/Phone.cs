@@ -10,7 +10,7 @@ namespace PhoneScenario.Core {
         //public Contacts Contacts { get; set; } = new Contacts();
         //public Calculator Calc { get; set; } = new Calculator();
         //public Calendar Agenda { get; set; } = new Calendar();
-        public GenericList<App> Apps { get; set; } = new GenericList<App>();
+        public ListOfApps Apps { get; set; } = new ListOfApps();
         public Phone() {
             
         }

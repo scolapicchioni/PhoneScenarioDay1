@@ -1,27 +1,12 @@
 ﻿using PhoneScenario.Apps;
+using PhoneScenario.Apps.CalculatorApp;
 using PhoneScenario.Apps.ContactsApp;
+using PhoneScenario.Apps.WhatsAppApps;
 using PhoneScenario.Core;
+using System;
 
 namespace PhoneScenario.ConsoleApp {
     class TechSupport {
-        public Contacts FindContactsApp(Phone phone) {
-            Contacts foundApp = null;
-            int index = 0;
-            while (index <= phone.Apps.Length || foundApp is null) {
-                App a = phone.Apps.ItemAt(index);
-                
-                if (a is Contacts) {
-                    foundApp = (Contacts)a; //cast    
-                }
-                index++;
-            }
-
-            if (foundApp is null) {
-                throw new ContactsAppNotFoundException("Sorry, we could not find the Contacts App");
-            }
-            return foundApp;
-        }
-
         public void CopyContacts(GenericList<Contact> source, GenericList<Contact> target) {
             //for (int i = 0; i < source.Contacts.Length && source.Contacts[i] is not null; i++) {}
 
@@ -43,8 +28,8 @@ namespace PhoneScenario.ConsoleApp {
             }
         }
         public void CopyContacts(Phone source, Phone target) {
-            GenericList<Contact> sourceList = FindContactsApp(source).Items;
-            GenericList<Contact> targetList = FindContactsApp(target).Items;
+            GenericList<Contact> sourceList = source.Apps.FindApp<Contacts>().Items;
+            GenericList<Contact> targetList = target.Apps.FindApp<Contacts>().Items;
 
             CopyContacts(sourceList, targetList);
         }
