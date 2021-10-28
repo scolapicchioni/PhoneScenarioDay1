@@ -93,6 +93,10 @@ namespace PhoneScenario.Apps.ContactsApp {
             HomeAddress.CopyTo(target.HomeAddress);
         }
 
+        public /*override*/ string? ToString() {
+            return $"{FullName} - {phoneNumber}";
+        }
+
     }
 
 

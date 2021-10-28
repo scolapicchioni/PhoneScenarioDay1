@@ -8,5 +8,9 @@ namespace PhoneScenario.Apps.WhatsAppApps {
         public WhatsApp(string name) : base(name) {
             Name = name;
         }
+
+        public override void Start() {
+            Console.WriteLine("WhatsApp staring....");        
+        }
     }
 }

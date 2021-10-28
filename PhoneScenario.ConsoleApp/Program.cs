@@ -9,23 +9,68 @@ using System;
 namespace PhoneScenario.ConsoleApp  {
     class Program {
         static void Main(string[] args) {
+            Contacts contacts = new Contacts();
+            StartApp(contacts);
+            StartApp(new Calculator());
+            //App a = new App();
+            //StartApp(a);
+        }
+
+        static void StartApp(App app) {
+            app.Start();
+
+            //if (app is Calendar) {
+            //    Calendar c = app as Calendar;
+            //    c.Start();
+            //} else if (app is WhatsApp) { 
+            
+            //}
+        }
+
+        //static void StartApp(Calendar app) {
+        //    app.Start();
+        //}
+        //static void StartApp(WhatsApp app) {
+        //    app.Start();
+        //}
+        //static void StartApp(Contacts app) {
+        //    app.Start();
+        //}
+
+        private static void Day04_VirtualOverrideDemo() {
+            Contact contact = new Contact();
+            contact.Name = "Simona";
+            contact.Surname = "Colapicchioni";
+            contact.PhoneNumber = "0612345678";
+            string s = contact.ToString();
+            Console.WriteLine(s);
+            WriteLine(contact);
+        }
+
+        static void WriteLine(object value) {
+            string s = value.ToString();
+            Console.WriteLine(s);
+        }
+
+
+        private static void Day04_MoreInheritance() {
             Phone p1 = new Phone();
 
             p1.Apps.Add(new Calculator("john"));
             p1.Apps.Add(new Calendar());
             p1.Apps.Add(new Contacts());
             p1.Apps.Add(new WhatsApp());
-            
+
             for (int i = 0; i < p1.Apps.Length; i++) {
                 App app = p1.Apps.ItemAt(i);
-                Console.WriteLine(app.Name); 
+                Console.WriteLine(app.Name);
             }
 
             try {
                 Contacts contactsApp = p1.Apps.FindApp<Contacts>();
                 Calculator calculatorApp = p1.Apps.FindApp<Calculator>();
             } catch (AppNotFoundException problem) {
-                Console.WriteLine(problem.Message); 
+                Console.WriteLine(problem.Message);
             }
         }
 

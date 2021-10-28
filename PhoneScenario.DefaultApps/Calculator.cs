@@ -34,5 +34,9 @@ namespace PhoneScenario.Apps.CalculatorApp {
         public double Divide(double n1, double n2) {
             return n1 / n2;
         }
+
+        public override void Start() {
+            Console.WriteLine("Calculator starting");
+        }
     }
 }
