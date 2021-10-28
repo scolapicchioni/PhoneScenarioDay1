@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PhoneScenario.Apps;
+using System.Collections.Generic;
 
 namespace PhoneScenario.Core {
     public class Phone {

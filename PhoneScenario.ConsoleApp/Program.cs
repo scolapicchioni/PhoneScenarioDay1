@@ -19,6 +19,12 @@ namespace PhoneScenario.ConsoleApp  {
                 App app = p1.Apps.ItemAt(i);
                 Console.WriteLine(app.Name); 
             }
+
+            try {
+                
+            } catch (ContactsAppNotFoundException problem) {
+                Console.WriteLine(problem.Message); 
+            }
         }
 
         //private static void Day03_WithoutInheritance() {

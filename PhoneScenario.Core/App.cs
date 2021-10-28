@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace PhoneScenario.Apps {
     public class App {
+        protected int id;
+        public int Id { get; init; }
         //public App() {
             
         //}
         public App(string name) {
-            Name = "This is an app with this name: " + name;
+            Name = name;
+            Id = 5;
         }
-        public string Name { get; set; }
+        public string Name { get; protected set; }
+
+        //public void ChangeId() {
+        //    Id = 44;
+        //}
     }
 }

@@ -1,8 +1,27 @@
-﻿using PhoneScenario.Apps.ContactsApp;
+﻿using PhoneScenario.Apps;
+using PhoneScenario.Apps.ContactsApp;
 using PhoneScenario.Core;
 
 namespace PhoneScenario.ConsoleApp {
     class TechSupport {
+        public Contacts FindContactsApp(Phone phone) {
+            Contacts foundApp = null;
+            int index = 0;
+            while (index <= phone.Apps.Length || foundApp is null) {
+                App a = phone.Apps.ItemAt(index);
+                
+                if (a is Contacts) {
+                    foundApp = (Contacts)a; //cast    
+                }
+                index++;
+            }
+
+            if (foundApp is null) {
+                throw new ContactsAppNotFoundException("Sorry, we could not find the Contacts App");
+            }
+            return foundApp;
+        }
+
         public void CopyContacts(GenericList<Contact> source, GenericList<Contact> target) {
             //for (int i = 0; i < source.Contacts.Length && source.Contacts[i] is not null; i++) {}
 
@@ -22,6 +41,12 @@ namespace PhoneScenario.ConsoleApp {
 
                 i++;
             }
+        }
+        public void CopyContacts(Phone source, Phone target) {
+            GenericList<Contact> sourceList = FindContactsApp(source).Items;
+            GenericList<Contact> targetList = FindContactsApp(target).Items;
+
+            CopyContacts(sourceList, targetList);
         }
     }
 }
