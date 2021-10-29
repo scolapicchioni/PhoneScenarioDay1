@@ -6,12 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PhoneScenario.Core {
-    public class ListOfApps : GenericList<App> {
+    public class ListOfApps : List<App> {
         public TheTypeOfAppToFind FindApp<TheTypeOfAppToFind>() where TheTypeOfAppToFind : App {
             TheTypeOfAppToFind foundApp = default;
             int index = 0;
-            while (index <= Length || foundApp is null) {
-                App a = ItemAt(index);
+            while (index <= Count || foundApp is null) {
+                App a = this.ElementAt(index);
                 //foundApp = a as TheTypeOfAppToFind;
                 if (a is TheTypeOfAppToFind) {
                     foundApp = (TheTypeOfAppToFind)a; //cast    

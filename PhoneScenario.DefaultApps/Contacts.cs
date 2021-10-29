@@ -1,6 +1,8 @@
 ﻿using PhoneScenario.Core;
 using PhoneScenario.DefaultApps;
 using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace PhoneScenario.Apps.ContactsApp {
     public class Contacts : App {
@@ -10,39 +12,20 @@ namespace PhoneScenario.Apps.ContactsApp {
             Items = repository.GetAll();
         }
 
-        public GenericList<Contact> Items { get; }
+        public List<Contact> Items { get; }
 
-        public GenericList<Contact> FilterBySurnameStartingWithA() {
-            GenericList<Contact> result = new GenericList<Contact>();
-            for (int i = 0; i < Items.Length; i++) {
-                Contact contact = Items.ItemAt(i);
-                if (contact.Surname.StartsWith("A")) {
-                    result.Add(contact);
-                }
-            }
-            return result;
-        }
-        public GenericList<Contact> FilterByMobile() {
-            GenericList<Contact> result = new GenericList<Contact>();
-            for (int i = 0; i < Items.Length; i++) {
-                Contact contact = Items.ItemAt(i);
-                if (contact.PhoneNumber.StartsWith("06")) {
-                    result.Add(contact);
-                }
-            }
-            return result;
-        }
+        
         public delegate bool ContactChecker(Contact contactToCheck);
-        public GenericList<Contact> Filter(ContactChecker checkContact) {
-            GenericList<Contact> result = new GenericList<Contact>();
-            for (int i = 0; i < Items.Length; i++) {
-                Contact contact = Items.ItemAt(i);
-                if (checkContact(contact)) {
-                    result.Add(contact);
-                }
-            }
-            return result;
-        }
+        //public List<Contact> Filter(ContactChecker checkContact) {
+        //    List<Contact> result = new List<Contact>();
+        //    for (int i = 0; i < Items.Count; i++) {
+        //        Contact contact = Items.ElementAt(i);
+        //        if (checkContact(contact)) {
+        //            result.Add(contact);
+        //        }
+        //    }
+        //    return result;
+        //}
 
         public override void Start() {
             Console.WriteLine("Contacts app starting...");

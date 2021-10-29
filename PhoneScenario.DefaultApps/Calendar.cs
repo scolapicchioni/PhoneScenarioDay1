@@ -1,6 +1,7 @@
 ﻿using PhoneScenario.Core;
 using PhoneScenario.DefaultApps;
 using System;
+using System.Collections.Generic;
 
 namespace PhoneScenario.Apps.CalendarApp {
     public class Calendar : App {
@@ -12,7 +13,7 @@ namespace PhoneScenario.Apps.CalendarApp {
         }
         public Calendar(string name) : base(name) {
         }
-        public GenericList<Appointment> Appointments { get; } = new GenericList<Appointment>();
+        public List<Appointment> Appointments { get; } = new List<Appointment>();
 
         public override void Start() {
             Console.WriteLine("Calendar starting");

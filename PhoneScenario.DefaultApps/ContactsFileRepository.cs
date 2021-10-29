@@ -1,14 +1,10 @@
 ﻿using PhoneScenario.Apps.ContactsApp;
-using PhoneScenario.Core;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PhoneScenario.DefaultApps {
     public class ContactsFileRepository : IRepository<Contact> {
-        public void Add(Contact contactToAdd) { 
+        public void Add(Contact contactToAdd) {
             //talk to File to add the contact to the DB
         }
         public void Delete(int id) {
@@ -17,7 +13,7 @@ namespace PhoneScenario.DefaultApps {
         public void Update(Contact contactToUpdate) {
             //talk to File to update the contact in the DB
         }
-        public GenericList<Contact> GetAll() {
+        public List<Contact> GetAll() {
             //talk to File to read all the contacts from the DB
             throw new NotImplementedException();
         }

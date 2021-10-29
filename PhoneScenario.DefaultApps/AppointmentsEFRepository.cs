@@ -16,7 +16,7 @@ namespace PhoneScenario.DefaultApps {
             throw new NotImplementedException();
         }
 
-        public GenericList<Appointment> GetAll() {
+        public List<Appointment> GetAll() {
             throw new NotImplementedException();
         }
 

@@ -1,6 +1,7 @@
 ﻿using PhoneScenario.Apps.ContactsApp;
 using PhoneScenario.Core;
 using System;
+using System.Collections.Generic;
 
 namespace PhoneScenario.DefaultApps {
     public class ContactsEFRepository : IRepository<Contact>  {
@@ -14,14 +15,14 @@ namespace PhoneScenario.DefaultApps {
         public void Update(Contact contactToUpdate) {
             //talk to Entity Framework to update the contact in the DB
         }
-        public GenericList<Contact> GetAll() {
+        public List<Contact> GetAll() {
             //talk to Entity Framework to read all the contacts from the DB
-            GenericList<Contact> list = new GenericList<Contact>();
-            list.Add(new Contact() { Name = "Simona", Surname = "Colapicchioni" });
-            list.Add(new Contact() { Name = "Simona", Surname = "VeryLongSurname012345678901234567890123456789012345678901234567890123456789" });
-            list.Add(new Contact() { Name = "John", Surname = "Doe" });
-            list.Add(new Contact() { Name = "Mario", Surname = "VeryLongSurname012345678901234567890123456789012345678901234567890123456789" });
-            return list;
+            return new List<Contact>() {
+                new Contact() { Name = "Simona", Surname = "Colapicchioni" },
+                new Contact() { Name = "Simona", Surname = "VeryLongSurname012345678901234567890123456789012345678901234567890123456789" },
+                new Contact() { Name = "John", Surname = "Doe" },
+                new Contact() { Name = "Mario", Surname = "VeryLongSurname012345678901234567890123456789012345678901234567890123456789" }
+            };
         }
         public Contact GetById(int id) {
             //talk to Entity Framework to find one contact in the DB given its Id

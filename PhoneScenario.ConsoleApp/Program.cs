@@ -6,9 +6,19 @@ using PhoneScenario.Apps.WhatsAppApps;
 using PhoneScenario.Core;
 using PhoneScenario.DefaultApps;
 using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace PhoneScenario.ConsoleApp  {
     public delegate double Calculation(double a, double b);
+
+
+    class ContactNameAndSurname {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+    }
+
+
     class Program {
         static void Main(string[] args) {
             
@@ -17,11 +27,44 @@ namespace PhoneScenario.ConsoleApp  {
         private static void Day05_Delegates02() {
             Contacts app = new Contacts(new ContactsEFRepository());
 
-            GenericList<Contact> contactsWithLongSurnames =
-                app.Filter(IsTheSurnameLongerThan50Letters);
+            List<Contact> contactsWithLongSurnames =
+                app.Items.Where(IsTheSurnameLongerThan50Letters).ToList();
 
-            GenericList<Contact> contactsLivingInGouda =
-                app.Filter(contact => contact.HomeAddress.City == "Gouda");
+            List<string> fullNames = app.Items.Select(contact => contact.FullName).ToList();
+
+            List<string> longFullNames = 
+                app.Items
+                .Where(IsTheSurnameLongerThan50Letters)
+                .Select(contact => contact.FullName)
+                .ToList();
+            
+
+
+            List<Contact> contactsLivingInGouda =
+                app.Items.Where(contact => contact.HomeAddress.City == "Gouda").ToList();
+
+
+            List<ContactNameAndSurname> contactNameAndSurnames =
+                app.Items
+                .Select(contact => new ContactNameAndSurname() { Name = contact.Name, Surname = contact.Surname })
+                .ToList();
+
+            var myPerson = new { Age = 46, Children = true };
+
+            var myNewList =
+                app.Items
+                .Where(contact => contact.Surname.Contains("yada"))
+                .OrderBy(contact => contact.Surname)
+                .ThenBy(contact => contact.Name)
+                .Select(contact => new { Name = contact.Name.ToUpper(), Surname = contact.Surname.ToUpper(), PhoneNumber = contact.PhoneNumber, Address = contact.HomeAddress.Street + " " + contact.HomeAddress.StreetNumber })
+                .ToList();
+
+            Phone p1 = new Phone();
+
+            //p1.Apps.First(app => app.Name == "Calendar");
+
+            Calendar c = p1.Apps.OfType<Calendar>().FirstOrDefault();
+
         }
 
         static void Day05_Delegates01() {
@@ -143,8 +186,8 @@ namespace PhoneScenario.ConsoleApp  {
             p1.Apps.Add(new Contacts(new ContactsEFRepository()));
             p1.Apps.Add(new WhatsApp());
 
-            for (int i = 0; i < p1.Apps.Length; i++) {
-                App app = p1.Apps.ItemAt(i);
+            for (int i = 0; i < p1.Apps.Count; i++) {
+                App app = p1.Apps.ElementAt(i);
                 Console.WriteLine(app.Name);
             }
 

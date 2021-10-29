@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PhoneScenario.DefaultApps {
     public interface IRepository<T> {
-        GenericList<T> GetAll();
+        List<T> GetAll();
         T GetById(int id);
         void Update(T contactToUpdate);
         void Add(T contactToAdd);
