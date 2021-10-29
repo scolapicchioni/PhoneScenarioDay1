@@ -5,7 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PhoneScenario.Apps.CalculatorApp {
+
+    
+
     public class Calculator : App {
+        
+
         //public string Name { get; set; } = "Calculator";
 
         //constructor

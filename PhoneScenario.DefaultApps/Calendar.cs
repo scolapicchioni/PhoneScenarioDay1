@@ -1,9 +1,14 @@
 ﻿using PhoneScenario.Core;
+using PhoneScenario.DefaultApps;
 using System;
 
 namespace PhoneScenario.Apps.CalendarApp {
     public class Calendar : App {
-        public Calendar() : base("Calendar") {
+        private readonly IRepository<Appointment> repository;
+
+        public Calendar(IRepository<Appointment> repository) : base("Calendar") {
+            this.repository = repository;
+            Appointments = repository.GetAll();
         }
         public Calendar(string name) : base(name) {
         }

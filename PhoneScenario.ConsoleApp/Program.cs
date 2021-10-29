@@ -4,16 +4,98 @@ using PhoneScenario.Apps.CalendarApp;
 using PhoneScenario.Apps.ContactsApp;
 using PhoneScenario.Apps.WhatsAppApps;
 using PhoneScenario.Core;
+using PhoneScenario.DefaultApps;
 using System;
 
 namespace PhoneScenario.ConsoleApp  {
+    public delegate double Calculation(double a, double b);
     class Program {
         static void Main(string[] args) {
-            Contacts contacts = new Contacts();
+            
+        }
+
+        private static void Day05_Delegates02() {
+            Contacts app = new Contacts(new ContactsEFRepository());
+
+            GenericList<Contact> contactsWithLongSurnames =
+                app.Filter(IsTheSurnameLongerThan50Letters);
+
+            GenericList<Contact> contactsLivingInGouda =
+                app.Filter(contact => contact.HomeAddress.City == "Gouda");
+        }
+
+        static void Day05_Delegates01() {
+            Calculator c1 = new Calculator();
+            Calculation calculate = new Calculation(c1.Divide);
+            calculate = c1.Divide;
+            double res = calculate(3.4, 5.6);
+            calculate = c1.Multiply;
+            res = calculate(3.4, 5.6);
+
+
+
+            Calculation toExecute = AskWhatCalculationToPerform();
+            CalculateAndPrint(toExecute);
+            CalculateAndPrint(Power);
+            CalculateAndPrint(Math.Pow);
+
+            CalculateAndPrint((double a, double b) => {
+                return Math.Pow(a, b);
+            });
+
+            //lambda expression
+            CalculateAndPrint((a, b) => Math.Pow(a, b));
+        }
+
+        static void Day05_DependencyInjection() {
+            Contacts contacts = new Contacts(new ContactsEFRepository());
             StartApp(contacts);
             StartApp(new Calculator());
-            //App a = new App();
-            //StartApp(a);
+
+            Calendar cal = new Calendar(new AppointmentsEFRepository());
+        }
+
+        static bool IsTheSurnameLongerThan50Letters(Contact contact) {
+            return contact.Surname.Length > 50;
+        }
+
+        static double Power(double a, double b) {
+            return Math.Pow(a, b);
+        }
+
+        static void CalculateAndPrint(Calculation calculate) {
+            Console.WriteLine("First number? ");
+            string s1 = Console.ReadLine();
+            double d1 = double.Parse(s1);
+
+            Console.WriteLine("Second number? ");
+            string s2 = Console.ReadLine();
+            double d2 = double.Parse(s2);
+
+            double result = calculate(d1, d2);
+
+            Console.WriteLine($"The result is {result}");
+
+        }
+
+
+
+        static Calculation AskWhatCalculationToPerform() {
+            Console.WriteLine("Type 1 for Add, 2 for Subtract, 3 for Multiply and 4 for Divide");
+            string input = Console.ReadLine();
+            Calculator c1 = new Calculator();
+            switch (input) {
+                case "1":
+                    return c1.Add;
+                case "2":
+                    return c1.Subtract;
+                case "3":
+                    return c1.Multiply;
+                case "4":
+                    return c1.Divide;
+                default:
+                    return c1.Add;
+            }
         }
 
         static void StartApp(App app) {
@@ -57,8 +139,8 @@ namespace PhoneScenario.ConsoleApp  {
             Phone p1 = new Phone();
 
             p1.Apps.Add(new Calculator("john"));
-            p1.Apps.Add(new Calendar());
-            p1.Apps.Add(new Contacts());
+            p1.Apps.Add(new Calendar(new AppointmentsEFRepository()));
+            p1.Apps.Add(new Contacts(new ContactsEFRepository()));
             p1.Apps.Add(new WhatsApp());
 
             for (int i = 0; i < p1.Apps.Length; i++) {
